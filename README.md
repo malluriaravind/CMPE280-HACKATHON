@@ -412,7 +412,7 @@ Time Series Data:
 ![Time series data](Sample_dashboard.png)
 Imports Exports Page:
 ![Imports exports page](Imports_exports.png)
-
+## RAG Architecture Diagram
 In our code, we have also implemented RAG architecture(Retrieval Augmented Generation)
 Here is a diagram representing the RAG architecture we implemented in our code for the 280 hackathon. 
 ![RAG Architecture](RAG_Architecture.png)
