@@ -407,4 +407,11 @@ Annotate Key Findings:
 
 Use the annotation tool to highlight critical insights directly on the dashboard.
 
+![Dashboard main page](Dashboard_main_page.png)
+![Time series data](Sample_dashboard.png)
+![Imports exports page] (Imports_exports.png)
 
+In our code, we have also implemented RAG architecture(Retrieval Augmented Generation)
+Here is a diagram representing the RAG architecture we implemented in our code for the 280 hackathon. 
+
+![RAG Architecture](RAG_Architecture.png)
