@@ -1,0 +1,67 @@
+/* Input.css */
+.input-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+}
+
+.thinking-animation {
+  color: #61dafb;
+  font-size: 0.9rem;
+  text-align: left;
+  padding-bottom: 5px;
+  animation: fadeInOut 1.5s infinite;
+}
+
+@keyframes fadeInOut {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
+}
+
+.dots {
+  animation: blink 1.5s infinite steps(3, end);
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
+}
+
+.input-container {
+  display: flex;
+  width: 100%;
+}
+
+.input-icon {
+  color: #61dafb;
+  padding: 10px;
+  background-color: #222;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #555;
+  border-left: none;
+  border-radius: 0 5px 5px 0;
+  background-color: #222;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  outline: none;
+}
+
+button {
+  padding: 10px;
+  border: none;
+  background-color: #61dafb;
+  color: #000;
+  cursor: pointer;
+  border-radius: 0 5px 5px 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+button:hover {
+  background-color: #4ea8d3;
+}

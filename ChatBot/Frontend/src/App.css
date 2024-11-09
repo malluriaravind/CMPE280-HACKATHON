@@ -1,0 +1,90 @@
+/* src/App.css */
+
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #1c1c1c; /* Set background to black */
+  font-family: Arial, sans-serif;
+  color: #f0f0f0; /* Light text color */
+}
+
+.app-header {
+  background-color: #282c34;
+  padding: 10px;
+  color: white;
+  display: flex;
+  justify-content: center; /* Center title */
+  align-items: center;
+}
+
+.app-header h1 {
+  margin-left: 10px;
+  font-size: 1.2em;
+  text-align: center;
+}
+
+.chat-container {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  background-color: #1c1c1c; /* Match app background color */
+  display: flex;
+  flex-direction: column;
+}
+
+.message {
+  margin-bottom: 15px;
+  max-width: 70%;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 1em;
+  color: #f0f0f0;
+}
+
+.message.user {
+  background-color: #3a3a3a; /* Green for user messages */
+  color: #e0e0e0;
+  align-self: flex-end; /* Aligns user messages to the right */
+  text-align: right;
+}
+
+.message.assistant {
+  background-color: #3a3a3a; /* Gray for assistant messages */
+  color: #e0e0e0;
+  align-self: flex-start; /* Aligns assistant messages to the left */
+  text-align: left;
+}
+
+.input-container {
+  display: flex;
+  padding: 10px;
+  background-color: #333333;
+}
+
+.input-container input {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #2b2b2b;
+  color: #f0f0f0;
+}
+
+.input-container input::placeholder {
+  color: #b3b3b3;
+}
+
+.input-container button {
+  margin-left: 10px;
+  padding: 10px 20px;
+  border: none;
+  background-color: #61DBFB;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.input-container button:hover {
+  background-color: #21a1f1;
+}
