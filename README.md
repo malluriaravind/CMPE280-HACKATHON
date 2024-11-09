@@ -354,7 +354,7 @@ Ask Questions: Locate the input box at the bottom of the chat interface. Type yo
 Submit Your Query: Press Enter or click the send button to submit your question.
 View Responses: The assistant will process your query and display a response on the left side of the chat interface.
 
-**Macroeconomic Researcher Food Security Time Series Dashboard**
+## Macroeconomic Researcher Food Security Time Series Dashboard
 Overview
 This dashboard is an interactive tool designed for researchers and policymakers to explore time-series data on food security and macroeconomic indicators. It provides a streamlined interface to analyze and visualize key metrics, enabling better insights into the state of food security and nutrition from 1961 to 2020.
 
