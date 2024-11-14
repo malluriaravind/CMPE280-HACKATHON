@@ -1,10 +1,10 @@
-// drag and drop
 var cloneId;
 var cnt = 0;
 let isPlaying = false;
 const playButton = document.getElementById('playButton');
 const slider1 = document.getElementById('slider-1');
 
+// Play slider function to retrieve and display graphs year by year
 async function playSlider() {
     if (isPlaying) return; // Prevent multiple playbacks
     isPlaying = true;
@@ -17,8 +17,8 @@ async function playSlider() {
         slider1.value = currentYear;
         slideOne();
 
-        // Wait for the graph to load before moving to the next year
-        await waitForGraphLoad();
+        // Retrieve and display the graph for the current year
+        await displayGraphForYear(currentYear);
 
         // Increment the year
         currentYear++;
@@ -27,38 +27,50 @@ async function playSlider() {
     isPlaying = false; // Reset playing state after completion
 }
 
+// Function to stop the playback
 function stopSlider() {
     isPlaying = false;
     console.log("Playback stopped");
 }
 
-function waitForGraphLoad() {
+// Function to retrieve and display the graph for the current year
+async function displayGraphForYear(year) {
+    const country = document.querySelector(".form-select").value || '1';
+    const iframeId = `iframe_div1_${country}`;
+    const graphType = cloneId || 'gdp'; // Default to 'gdp' if no graph type is selected
+
+    // Get the data URL for the current year and graph type
+    const graphUrl = getDataCountry(country, graphType);
+
+    // Set the iframe source to the retrieved URL
+    const iframe = document.getElementById(iframeId);
+    if (iframe) {
+        iframe.src = graphUrl;
+        console.log(`Graph updated for year: ${year}`);
+        await waitForGraphLoad(iframe);
+    }
+}
+
+// Function to wait for the graph to load before proceeding
+function waitForGraphLoad(iframe) {
     return new Promise((resolve) => {
-        const country = document.querySelector(".form-select").value || '1';
-        const iframeId = `iframe_div1_${country}`; // Update this if needed for different graphs
+        iframe.onload = () => {
+            console.log(`Graph loaded for year: ${slider1.value}`);
+            resolve();
+        };
 
-        const iframe = document.getElementById(iframeId);
-        if (iframe) {
-            // Listen for the iframe's load event
-            iframe.onload = () => {
-                console.log(`Graph loaded for year: ${slider1.value}`);
-                resolve(); // Proceed to the next year after the graph loads
-            };
-
-            // Fallback in case the iframe does not load
-            setTimeout(() => {
-                console.log(`Timeout fallback for year: ${slider1.value}`);
-                resolve();
-            }, 3000); // 3-second timeout (adjust if necessary)
-        } else {
-            resolve(); // Resolve immediately if the iframe is not found
-        }
+        // Fallback timeout in case the iframe does not load
+        setTimeout(() => {
+            console.log(`Timeout fallback for year: ${slider1.value}`);
+            resolve();
+        }, 3000); // 3-second timeout
     });
 }
 
 // Event listeners for play and stop (double-click)
 playButton.addEventListener('click', playSlider);
 playButton.addEventListener('dblclick', stopSlider);
+
 
 
 function getDataCountry(country_code, ev){
