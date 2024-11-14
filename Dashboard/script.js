@@ -1,6 +1,65 @@
 // drag and drop
 var cloneId;
 var cnt = 0;
+let isPlaying = false;
+const playButton = document.getElementById('playButton');
+const slider1 = document.getElementById('slider-1');
+
+async function playSlider() {
+    if (isPlaying) return; // Prevent multiple playbacks
+    isPlaying = true;
+
+    const maxYear = parseInt(slider1.max);
+    const minYear = parseInt(slider1.min);
+    let currentYear = parseInt(slider1.value);
+
+    while (isPlaying && currentYear <= maxYear) {
+        slider1.value = currentYear;
+        slideOne();
+
+        // Wait for the graph to load before moving to the next year
+        await waitForGraphLoad();
+
+        // Increment the year
+        currentYear++;
+    }
+
+    isPlaying = false; // Reset playing state after completion
+}
+
+function stopSlider() {
+    isPlaying = false;
+    console.log("Playback stopped");
+}
+
+function waitForGraphLoad() {
+    return new Promise((resolve) => {
+        const country = document.querySelector(".form-select").value || '1';
+        const iframeId = `iframe_div1_${country}`; // Update this if needed for different graphs
+
+        const iframe = document.getElementById(iframeId);
+        if (iframe) {
+            // Listen for the iframe's load event
+            iframe.onload = () => {
+                console.log(`Graph loaded for year: ${slider1.value}`);
+                resolve(); // Proceed to the next year after the graph loads
+            };
+
+            // Fallback in case the iframe does not load
+            setTimeout(() => {
+                console.log(`Timeout fallback for year: ${slider1.value}`);
+                resolve();
+            }, 3000); // 3-second timeout (adjust if necessary)
+        } else {
+            resolve(); // Resolve immediately if the iframe is not found
+        }
+    });
+}
+
+// Event listeners for play and stop (double-click)
+playButton.addEventListener('click', playSlider);
+playButton.addEventListener('dblclick', stopSlider);
+
 
 function getDataCountry(country_code, ev){
 

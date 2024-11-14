@@ -500,4 +500,45 @@ img {
     display: none; /* Removed the :after pseudo-elements to ensure iframes display correctly */
 }
 
-/* Removed any unnecessary or conflicting styles */
+/* Playback Controls Styling */
+.playback-controls {
+    display: flex;
+    align-items: center;
+}
+
+.playback-controls .btn {
+    min-width: 40px;
+    padding: 0.375rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.playback-controls .btn i {
+    font-size: 1.2rem;
+}
+
+/* Ensure buttons are properly spaced on smaller screens */
+@media (max-width: 768px) {
+    .playback-controls {
+        margin-top: 1rem;
+    }
+}
+
+/* Annotation Note Styling */
+.annotation-note {
+    background-color: #e9f7ef;
+    border-left: 4px solid #1ABC9C;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 3px;
+}
+
+/* Current Annotation Display Styling */
+#currentAnnotation {
+    background-color: #f8f9fa;
+    border-left: 4px solid #1ABC9C;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 3px;
+}
