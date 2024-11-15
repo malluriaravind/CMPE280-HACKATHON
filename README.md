@@ -407,9 +407,9 @@ Annotate Key Findings:
 Use the annotation tool to highlight critical insights directly on the dashboard.
 
 Main Dashboard Page: 
-![Dashboard main page](Dashboard_main_page.png)
+![Dashboard main page](Playback_feature.png)
 Time Series Data:
-![Time series data](Sample_dashboard.png)
+![Time series data](Playback_feature.png)
 Imports Exports Page:
 ![Imports exports page](Imports_exports.png)
 ## RAG Architecture Diagram
